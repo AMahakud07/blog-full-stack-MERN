@@ -2,3 +2,6 @@
 
 front end 
 back end
+
+mongo atlas
+node - express
