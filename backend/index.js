@@ -8,9 +8,9 @@ const app = express();
 const jwt = require('jsonwebtoken')
 
 const salt = bcrypt.genSaltSync(10);
-const secret = 'sfdsdfrgsd34f';
+const secret = '545fgeretr43rgtery545ery45yery4566erefwg';
 
-app.use(cors());
+app.use(cors({credentials:true,origin:'http://localhost:3000'}));
 
 app.use(express.json()) // to read data from req body
 
@@ -33,14 +33,15 @@ app.post('/register',async(req,res)=>{
 app.post('/login',async (req,res)=>{
     const {username,password} = req.body;
     const userDoc = await User.findOne({username})
-    res.json(userDoc);
+    //res.json(userDoc);
     const passOk =bcrypt.compareSync(password, userDoc.password);
     // res.json(passOk);
     if(passOk){
         //logged in
         jwt.sign({username,id:userDoc._id},secret,{},(err,token)=>{
             if(err) throw err;
-            res.json(token);
+            // res.json(token);
+            res.cookie('token',token).json('ok')
         })
         // res.json()
     }else{
