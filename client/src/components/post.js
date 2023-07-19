@@ -1,17 +1,20 @@
-// import '../App.css';
+import '../App.css';
+import {format} from "date-fns";
 
 
-export default function Post({title,summary,cover,content,createdAt}){
+export default function Post({title,summary,cover,content,createdAt,author}){
+  // console.log(title);
+
 return (
     <div className='post'>
         <div className='image'>
-        <img src='https://beebom.com/wp-content/uploads/2023/06/Diablo-4.jpg?resize=706%2C486&quality=75&strip=all' alt=''></img>
+        <img src={'http://localhost:4000/'+cover} alt=''></img>
         </div>
-        <div className='text'>
+        <div className="texts">
           <h2>{title}</h2>
           <p className='info'>
-            <a className='author'>Abhishek mahakud</a>
-            <time>{createdAt}</time>
+            <a className='author'>{author.username}</a>
+            <time>{format(new Date(createdAt), 'MMM d, yyyy HH:mm')}</time>
           </p>
           <p className='summary'>{summary}</p>
         </div>
