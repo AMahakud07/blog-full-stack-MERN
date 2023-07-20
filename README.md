@@ -1,13 +1,22 @@
 # blog-full-stack-MERN
 
-front end 
-react
+# Tech stack used 
+. React
+. Express
+. MongoDB
 
+# Libraries used
+. date-fns
+. react-quill
 
-back end
+# Functionalities
+. Login / Register
+. Create blog
+. Edit Blog
 
-mongo atlas
-node - express
+# Summary
+. All user's blogs are posted on a single page
+. Only the blog creator can edit the blogs
 
 
 
